@@ -30,14 +30,17 @@ if(orignalText!==''){
   }
 }
 //compare and find added words
+if(editedText!==''){
+
   for(const word in editedCount){
     const addedTimes=editedCount[word]-(originalCount[word] || 0)
     if(addedTimes>0){
-        for(let i=0;i<addedTimes;i++){
-            addedArray.push(word)
-        }
+      for(let i=0;i<addedTimes;i++){
+        addedArray.push(word)
+      }
     }
   }
+}
   
   return {removedArray,addedArray}
 };
