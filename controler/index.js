@@ -7,16 +7,17 @@ const countWords = (editedText, orignalText) => {
   const addedArray=[] //this is for added words
   const editedCount = {}; //here i keep count of edited words example in "rubul is a coder, who is great" {is:2}
   const originalCount = {};// here i keep count of original words .
-
+  
   //process to add edited count
   editedWordsArray.forEach(word => {
-      editedCount[word] = (editedCount[word] || 0) + 1;
+    editedCount[word] = (editedCount[word] || 0) + 1;
   });
-//process to add origin count
+  //process to add origin count
   originalWordsArray.forEach(word => {
     originalCount[word] = (originalCount[word] || 0) + 1;
   });
 
+if(orignalText!==''){ 
   // Compare and find removed words
   for (const word in originalCount) {
     const removedTimes = originalCount[word] - (editedCount[word] || 0);
@@ -27,7 +28,8 @@ const countWords = (editedText, orignalText) => {
     }
 
   }
-  //compare and find added words
+}
+//compare and find added words
   for(const word in editedCount){
     const addedTimes=editedCount[word]-(originalCount[word] || 0)
     if(addedTimes>0){
@@ -36,6 +38,7 @@ const countWords = (editedText, orignalText) => {
         }
     }
   }
+  
   return {removedArray,addedArray}
 };
 const saveText=async(req,res)=>{
