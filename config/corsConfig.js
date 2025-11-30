@@ -5,7 +5,7 @@ const corsConfig = () => {
     origin: (origin, callback) => {
       const allowedOrigins = [
         "http://localhost:3000",
-        "https://taskapp-fr.vercel.app/"
+        "https://mini-audit-trail-generator-fe.vercel.app"
       ];
       if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
         callback(null, true); // allowed
